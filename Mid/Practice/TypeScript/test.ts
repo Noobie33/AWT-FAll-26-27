@@ -108,7 +108,7 @@ async function main(): Promise<void> {
     console.log("Student information received:");
     console.log(student);
 }
-
+console.log("Watch mode is working!");
 main();
 
 
