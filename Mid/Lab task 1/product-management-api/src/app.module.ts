@@ -7,6 +7,7 @@ import global_config from "@/config/global_config";
 import { BullModule } from "@nestjs/bull";
 import { UserModule } from "./modules/user/user.module";
 import { ProductModule } from "./modules/product/product.module";
+import { EmployeeModule } from "./modules/employee/employee.module";
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ProductModule } from "./modules/product/product.module";
     }),
     UserModule,
     ProductModule,
+    EmployeeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
