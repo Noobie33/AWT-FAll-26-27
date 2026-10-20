@@ -2,11 +2,11 @@
 
 ## Student Information
 
+- **Serial:** 9
 - **Name:** Shazzad Hossain Setu
 - **Student ID:** 23-52849-2
 - **Section:** E
 - **Course:** Advanced Programming in Web Technology
-- **Lab Task:** 1
 
 ## Project Overview
 
