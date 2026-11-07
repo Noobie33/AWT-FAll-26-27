@@ -1,0 +1,338 @@
+{
+  "info": {
+    "name": "Lab Task 3 - Registration",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 Valid registration",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://localhost:3000/users/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"password\": \"Rahim@123\",\n  \"age\": 22,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "01 Valid registration",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "http://localhost:3000/users/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"password\": \"Rahim@123\",\n  \"age\": 22,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"User registered successfully\",\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"age\": 22,\n  \"accountType\": \"student\"\n}"
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Expected status', () => pm.response.to.have.status(201));"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 Invalid email",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://localhost:3000/users/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"invalid-email\",\n  \"password\": \"Rahim@123\",\n  \"age\": 22,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "02 Invalid email",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "http://localhost:3000/users/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"invalid-email\",\n  \"password\": \"Rahim@123\",\n  \"age\": 22,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": [\n    \"email must be an email\"\n  ],\n  \"error\": \"Bad Request\",\n  \"statusCode\": 400\n}"
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Expected status', () => pm.response.to.have.status(400));"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 Weak password",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://localhost:3000/users/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"password\": \"weak\",\n  \"age\": 22,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "03 Weak password",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "http://localhost:3000/users/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"password\": \"weak\",\n  \"age\": 22,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": [\n    \"Password must include uppercase, lowercase, a digit and a special character\",\n    \"password must be longer than or equal to 8 characters\"\n  ],\n  \"error\": \"Bad Request\",\n  \"statusCode\": 400\n}"
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Expected status', () => pm.response.to.have.status(400));"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 Underage",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://localhost:3000/users/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"password\": \"Rahim@123\",\n  \"age\": 17,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "04 Underage",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "http://localhost:3000/users/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"password\": \"Rahim@123\",\n  \"age\": 17,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": [\n    \"age must not be less than 18\"\n  ],\n  \"error\": \"Bad Request\",\n  \"statusCode\": 400\n}"
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Expected status', () => pm.response.to.have.status(400));"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 Unexpected isAdmin",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://localhost:3000/users/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"password\": \"Rahim@123\",\n  \"age\": 22,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\",\n  \"isAdmin\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "05 Unexpected isAdmin",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "http://localhost:3000/users/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Rahim Ahmed\",\n  \"email\": \"rahim@example.com\",\n  \"password\": \"Rahim@123\",\n  \"age\": 22,\n  \"phone\": \"01712345678\",\n  \"accountType\": \"student\",\n  \"address\": \"Dhaka, Bangladesh\",\n  \"isAdmin\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": [\n    \"property isAdmin should not exist\"\n  ],\n  \"error\": \"Bad Request\",\n  \"statusCode\": 400\n}"
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Expected status', () => pm.response.to.have.status(400));"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}
